@@ -1,6 +1,6 @@
 package main.java;
 
-import main.java.classes.BillCounter;
+import main.java.counter.BillCounter;
 
 import java.util.Scanner;
 
@@ -10,11 +10,9 @@ public class Main {
 
         System.out.print("Enter your amount: ");
         long start, end, total;
-        Scanner scanner = new Scanner(System.in);
-        try {
+        try (Scanner scanner = new Scanner(System.in)){
             Integer amount = scanner.nextInt();
             scanner.nextLine();
-            scanner.close();
             if (amount >= 24565 && amount <= 35789) {
                 start = System.currentTimeMillis();
                 BillCounter.countBills(amount);
